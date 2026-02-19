@@ -2,7 +2,7 @@ FROM php:8.1-cli-alpine
 
 ENV PATH="/root/.local/bin:${PATH}"
 ARG PHPUNIT_VERSION=10
-ARG XDEBUG_VERSION=3.3
+ARG XDEBUG_VERSION=3.5
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 RUN set -ex  \

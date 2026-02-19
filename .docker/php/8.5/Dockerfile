@@ -1,4 +1,4 @@
-FROM php:8.2-cli-alpine
+FROM php:8.5-cli-alpine
 
 ENV PATH="/root/.local/bin:${PATH}"
 ARG PHPUNIT_VERSION=10
@@ -6,7 +6,7 @@ ARG XDEBUG_VERSION=3.5
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 RUN set -ex  \
-    && apk update && apk upgrade && apk add --no-cache wget python3 py3-pip
+    && apk update && apk upgrade && apk add --no-cache wget git python3 py3-pip autoconf g++ make automake libtool linux-headers
 
 ## Install xdebug
 RUN set -ex  \
