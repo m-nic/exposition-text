@@ -73,7 +73,7 @@ phpstan:
 .PHONY: phpstan
 
 ## Run all tests on all PHP versions
-tests: composer-validate phpstan test-php-7.2 test-php-7.3 test-php-7.4 test-php-8.0 test-php-8.1 test-php-8.2 test-php-8.3 test-php-8.4
+tests: composer-validate phpstan test-php-7.2 test-php-7.3 test-php-7.4 test-php-8.0 test-php-8.1 test-php-8.2 test-php-8.3 test-php-8.4 test-php-8.5
 .PHONY: tests
 
 PHP_OPTIONS = -d error_reporting=-1 -dmemory_limit=-1 -d xdebug.mode=coverage
@@ -134,3 +134,10 @@ test-php-8.4: dcdown
 	$(DOCKER_COMPOSE_ISOLATED_RUN_COMMAND) php84 php $(PHP_OPTIONS) /usr/local/bin/phpunit -c tests/phpunit-10.xml --testsuite=Unit $(PHPUNIT_OPTIONS)
 	$(DOCKER_COMPOSE_ISOLATED_RUN_COMMAND) php84 php $(PHP_OPTIONS) /usr/local/bin/phpunit -c tests/phpunit-10.xml --testsuite=Integration $(PHPUNIT_OPTIONS)
 .PHONY: test-php-8.4
+
+## Run test on PHP 8.5
+test-php-8.5: dcdown
+	printf "\n\033[33mRun Tests on PHP 8.5\033[0m\n"
+	$(DOCKER_COMPOSE_ISOLATED_RUN_COMMAND) php85 php $(PHP_OPTIONS) /usr/local/bin/phpunit -c tests/phpunit-10.xml --testsuite=Unit $(PHPUNIT_OPTIONS)
+	$(DOCKER_COMPOSE_ISOLATED_RUN_COMMAND) php85 php $(PHP_OPTIONS) /usr/local/bin/phpunit -c tests/phpunit-10.xml --testsuite=Integration $(PHPUNIT_OPTIONS)
+.PHONY: test-php-8.5
