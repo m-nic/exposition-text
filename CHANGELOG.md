@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CH
 
 ## [0.4.3] - 2026-02-20
 
-[0.4.2]: https://github.com/openmetrics-php/exposition-text/compare/v0.4.2...v0.4.3
+[0.4.3]: https://github.com/openmetrics-php/exposition-text/compare/v0.4.2...v0.4.3
 
 ### Added
 
